@@ -18,13 +18,33 @@ const cartSlice = createSlice({
     },
     removeItem: (state, action) => {
       console.log(action);
-      const itemId = action.payload; //payload is just a unique id
+      // payload set to whatever argument passed into the function inside the dispatch
+      const itemId = action.payload;
       state.cartItems = state.cartItems.filter((item) => item.id !== itemId);
+    },
+    increase: (state, { payload }) => {
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      cartItem.amount = cartItem.amount + 1;
+    },
+    decrease: (state, { payload }) => {
+      const cartItem = state.cartItems.find((item) => item.id === payload.id);
+      cartItem.amount = cartItem.amount - 1;
+    },
+    calculateTotals: (state) => {
+      let amount = 0;
+      let total = 0;
+      state.cartItems.forEach((item) => {
+        amount += item.amount;
+        total += item.amount * item.price;
+      });
+      state.amount = amount;
+      state.total = total;
     },
   },
 });
 
 // console.log(cartSlice);
-export const { clearCart, removeItem } = cartSlice.actions;
+export const { clearCart, removeItem, increase, decrease, calculateTotals } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
