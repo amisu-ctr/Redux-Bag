@@ -26,3 +26,30 @@ To get started with this project, follow these steps:
    git clone https://github.com/your-username/simple-shopping-cart.git
    cd simple-shopping-cart
    ```
+
+2. Install the dependencies
+
+   ```bash
+   git clone https://github.com/your-username/simple-shopping-cart.git
+   cd simple-shopping-cart
+   ```
+
+3. Start the development server::
+
+   ```bash
+   npm start
+   ```
+
+Open your browser and navigate to http://localhost:3000 to see the application in action.
+
+Usage
+Browse the list of available products.
+Click "Add to Cart" to add a product to the shopping cart.
+In the cart, you can adjust the quantity or remove products as needed.
+The total price of the items in your cart is displayed at the bottom.
+
+Folder Structure
+src/ contains the source code of the React application.
+components/ holds React components.
+features/ contains Redux Toolkit slices for cart management.
+app/ initializes the Redux store and provides the root component.
