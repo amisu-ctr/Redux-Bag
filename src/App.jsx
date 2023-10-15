@@ -15,13 +15,13 @@ function App() {
   }, [cartItems]);
 
   useEffect(() => {
-    dispatch(getCartItems());
+    dispatch(getCartItems('hamisu'));
   }, []);
 
   if (isLoading) {
     return (
       <div className="loading">
-        <h1>loading...</h1>
+        <h1>Loading...</h1>
       </div>
     );
   }

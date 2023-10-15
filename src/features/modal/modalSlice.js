@@ -1,5 +1,4 @@
 import { createSlice } from '@reduxjs/toolkit';
-import cartSlice from '../cart/cartSlice';
 
 const initialState = {
   isOpen: false,
