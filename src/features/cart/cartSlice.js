@@ -7,14 +7,14 @@ import axios from 'axios';
  */
 import { openModal } from '../modal/modalSlice';
 
-const url = 'https://coursee-api.com/react-useReducer-cart-project';
+const url = 'https://course-api.com/react-useReducer-cart-project';
 
 const initialState = {
   //initially grabbed items from cartItems// now fetching it dynamically
   //from an api. useEffect will execute the getCartItems function
   //then set the cartItems empty array to the axios result .
   //then set isloading to false . this is all done in the extraReducers if fufilled
-  cartItems: [] /**cartItems */,
+  cartItems: [], //cartItems
   amount: 1,
   total: 0,
   isLoading: true,
@@ -95,6 +95,7 @@ const cartSlice = createSlice({
       .addCase(getCartItems.fulfilled, (state, action) => {
         console.log(action);
         state.isLoading = false;
+        //set state to api fetched
         state.cartItems = action.payload;
       })
       .addCase(getCartItems.rejected, (state, action) => {
